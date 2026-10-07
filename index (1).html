@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>for yuka ♡</title>
+<style>
+:root{--bg1:#ffd6ec;--bg2:#d9d6ff;--bg3:#cdf3ff;--ink:#5b3a6e;--win:#fff8fd;--bar1:#ff9ad5;--bar2:#b9a7ff;--accent:#ff5fb0;--soft:#ffe3f3;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg1:#5a2a60;--bg2:#32316b;--bg3:#1f4a62;--ink:#ffe6f6;--win:#3a2748;--soft:#4d3260}}
+:root[data-theme="dark"]{--bg1:#5a2a60;--bg2:#32316b;--bg3:#1f4a62;--ink:#ffe6f6;--win:#3a2748;--soft:#4d3260}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;min-height:100vh;color:var(--ink);font-family:"Trebuchet MS","Segoe UI",system-ui,sans-serif;background:linear-gradient(160deg,var(--bg1),var(--bg2) 55%,var(--bg3));background-attachment:fixed;overflow-x:hidden}
+.float{position:fixed;pointer-events:none;font-size:22px;opacity:.7;animation:fl 9s ease-in-out infinite}
+@keyframes fl{50%{transform:translateY(-18px) rotate(12deg)}}
+main{max-width:520px;margin:0 auto;padding:22px 16px 40px;position:relative}
+h1{margin:6px 0 2px;font-size:26px;text-align:center;text-shadow:2px 2px 0 #fff8}
+.sub{text-align:center;font-size:13px;margin:0 0 20px;opacity:.85}
+.icons{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.icon{border:2px solid #fff;border-radius:18px;background:linear-gradient(180deg,#fff9,#fff3);backdrop-filter:blur(4px);padding:16px 8px;text-align:center;font:inherit;color:var(--ink);cursor:pointer;box-shadow:0 6px 0 #ff9ad566,0 10px 18px #b9a7ff55;transition:transform .15s}
+.icon:active{transform:translateY(3px)}
+.icon b{display:block;font-size:34px;font-weight:400}
+.icon span{font-size:13px;font-weight:700}
+.icon.locked{opacity:.55;filter:grayscale(.4)}
+.hint{text-align:center;font-size:12px;margin-top:18px;opacity:.8}
+.win{display:none;position:fixed;inset:0;z-index:5;background:#0004;padding:calc(env(safe-area-inset-top,0px) + 16px) 14px 16px;overflow:auto}
+.win.on{display:block}
+.box{max-width:480px;margin:0 auto;background:var(--win);border:2px solid #fff;border-radius:16px;overflow:hidden;box-shadow:0 12px 30px #6b3b8a55}
+.bar{display:flex;align-items:center;justify-content:space-between;padding:8px 12px;background:linear-gradient(180deg,#fff7,transparent),linear-gradient(90deg,var(--bar1),var(--bar2));color:#fff;font-weight:700;font-size:14px;text-shadow:0 1px 2px #0004}
+.x{border:2px solid #fff;background:#ff7eb6;color:#fff;border-radius:8px;width:28px;height:26px;font-weight:700;cursor:pointer}
+.body{padding:20px 18px 22px;line-height:1.65;font-size:16px}
+.body p{margin:0 0 14px}
+.sig{text-align:right;font-weight:700;color:var(--accent)}
+.chat{display:flex;flex-direction:column;gap:8px}
+.bub{align-self:flex-start;background:var(--soft);border-radius:16px 16px 16px 4px;padding:8px 13px;max-width:88%;animation:pop .3s}
+.bub.big{background:linear-gradient(90deg,var(--bar1),var(--bar2));color:#fff;font-weight:700}
+@keyframes pop{from{transform:scale(.7);opacity:0}}
+.btn{display:block;margin:16px auto 0;border:2px solid #fff;border-radius:999px;padding:10px 24px;font:inherit;font-weight:700;color:#fff;background:linear-gradient(180deg,#ffb3dd,var(--accent));box-shadow:0 4px 0 #c9378a;cursor:pointer}
+.btn:active{transform:translateY(3px);box-shadow:0 1px 0 #c9378a}
+.btn.alt{background:linear-gradient(180deg,#d8cdff,#9a85f0);box-shadow:0 4px 0 #6b55c9}
+.num{font-size:44px;font-weight:800;color:var(--accent);text-shadow:2px 2px 0 #fff8;line-height:1}
+.reason{min-height:120px;animation:pop .3s}
+.row{display:flex;gap:12px;justify-content:center;align-items:center;flex-wrap:wrap}
+.center{text-align:center}
+.q{font-size:21px;font-weight:700}
+
+.stage{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.pole{position:absolute;left:50%;top:0;bottom:0;width:14px;margin-left:-7px;border-radius:7px;background:linear-gradient(90deg,#fff9,#fff 35%,#ffd6f0 60%,#fff8);box-shadow:0 0 18px #fff,0 0 40px #ff9ad5;translate:calc(var(--px,0)*10px) 0;opacity:.75}
+.pole::before{content:"";position:absolute;inset:0;border-radius:7px;background:repeating-linear-gradient(160deg,transparent 0 14px,#ff9ad555 14px 18px);animation:spiral 3s linear infinite}
+@keyframes spiral{to{background-position:0 56px}}
+.plate{position:absolute;left:50%;width:90px;height:10px;margin-left:-45px;border-radius:10px;background:linear-gradient(#fff,#ffb3dd);box-shadow:0 0 16px #ff9ad5}
+.plate.t{top:0}.plate.b{bottom:0}
+.dancer{position:absolute;left:50%;top:60%;font-size:34px;margin-left:-17px;animation:orbit 3.2s ease-in-out infinite,climb 9s ease-in-out infinite alternate;filter:drop-shadow(0 0 8px #fff)}
+@keyframes orbit{0%,100%{transform:translateX(-34px) rotate(-12deg) scale(1)}25%{transform:translateX(0) rotate(0) scale(.8)}50%{transform:translateX(34px) rotate(12deg) scale(1)}75%{transform:translateX(0) rotate(0) scale(1.18)}}
+@keyframes climb{from{top:68%}to{top:24%}}
+.float,.pole{will-change:translate}
+.float{translate:calc(var(--px,0)*var(--d,10)*1px) calc(var(--py,0)*var(--d,10)*1px)}
+.glitter{position:absolute;width:6px;height:6px;border-radius:50%;background:#fff;box-shadow:0 0 10px 3px #fff;animation:tw 2.4s ease-in-out infinite;translate:calc(var(--px,0)*var(--d,6)*1px) calc(var(--py,0)*var(--d,6)*1px)}
+@keyframes tw{50%{opacity:.15;transform:scale(.4)}}
+#fin .btn{transition:transform .2s}
+.nobtn{position:relative}
+.tease{font-size:14px;min-height:20px;margin:10px 0 0;color:var(--accent);font-weight:700}
+
+.spark{display:block;margin:22px auto 0;border:2px solid #fff;border-radius:999px;padding:9px 20px;font:inherit;font-size:14px;font-weight:700;color:#fff;background:linear-gradient(180deg,#ffd0ec,#b9a7ff);box-shadow:0 4px 0 #8f7be0,0 0 18px #fff;text-shadow:0 1px 2px #0003;animation:bob 1.8s ease-in-out infinite;cursor:pointer;transform:rotate(-3deg)}@keyframes bob{50%{transform:translateY(-6px) rotate(3deg)}}
+.kana{font-size:40px;font-weight:800;color:var(--accent);background:none;border:0;cursor:pointer;font-family:inherit;margin:4px 0 8px;text-shadow:2px 2px 0 #fff8;animation:pop .4s}
+#hintJp{margin-top:12px;padding:10px 14px;border-radius:14px;background:var(--soft);animation:pop .4s}
+</style>
+</head>
+<body>
+<div class="stage" id="stage"><div class="plate t"></div><div class="pole"></div><div class="plate b"></div><div class="dancer">💃</div>
+<i class="glitter" style="left:18%;top:30%;--d:14"></i><i class="glitter" style="left:80%;top:40%;--d:22;animation-delay:-1s"></i><i class="glitter" style="left:30%;top:80%;--d:18;animation-delay:-.5s"></i><i class="glitter" style="left:70%;top:12%;--d:26;animation-delay:-1.7s"></i><i class="glitter" style="left:8%;top:52%;--d:10;animation-delay:-.8s"></i><i class="glitter" style="left:90%;top:70%;--d:16;animation-delay:-2s"></i></div>
+<span class="float" style="left:6%;top:12%;--d:16">✦</span><span class="float" style="left:84%;top:46%;--d:30;animation-delay:-4s">🩰</span><span class="float" style="left:4%;top:38%;--d:24;animation-delay:-1s">🪩</span><span class="float" style="right:8%;top:20%;animation-delay:-3s;--d:28">🦋</span><span class="float" style="left:12%;top:64%;animation-delay:-5s;--d:22">♡</span><span class="float" style="right:10%;top:78%;animation-delay:-2s;--d:34">★</span><span class="float" style="left:48%;top:90%;animation-delay:-6s;--d:20">🎀</span>
+<main>
+<h1>♡ for yuka ♡</h1>
+<p class="sub">pastel, sparkles &amp; a little pole magic ✦<br>tap the icons (in order, if you want)</p>
+<div class="icons">
+<button class="icon" onclick="openW('letter')"><b>💌</b><span>love_letter.txt</span></button>
+<button class="icon" onclick="openW('chat')"><b>💬</b><span>messenger.exe</span></button>
+<button class="icon" onclick="openW('why')"><b>🪩</b><span>reasons.exe</span></button>
+<button class="icon locked" id="lock" onclick="openW('final')"><b id="lockI">🔒</b><span id="lockT">one last thing</span></button>
+</div>
+<p class="hint" id="hint">open the first three to unlock the last one ✿</p>
+</main>
+
+<div class="win" id="letter"><div class="box"><div class="bar"><span>💌 love_letter.txt</span><button class="x" onclick="closeW()">×</button></div>
+<div class="body">
+<p>hey yuka ♡</p>
+<p>okay, so... we've only been talking for a little while, and we're still getting to know each other.</p>
+<p>But somewhere between all the random conversations, the stories, the little details, and the things you've told me about yourself...</p>
+<p>I realized I really like talking to you.</p>
+<p>I like hearing about your dancing, your cooking, your love for cats, your Japanese, your random interests, and your very specific taste in pastel Y2K fashion and dresses from the early 2000s.</p>
+<p>You just seem like someone with a lot of little things that make you you.</p>
+<p>And honestly, I want to keep discovering them.</p>
+<p>I'm not going to make this some huge dramatic confession because we're still at the beginning of all this.</p>
+<p>I just wanted to say it simply:</p>
+<p><b>I like you, Yuka. ♡</b></p>
+<p>And I'd really like to see where this goes.</p>
+<p class="sig">— soul ✦</p>
+</div></div></div>
+
+<div class="win" id="chat"><div class="box"><div class="bar"><span>💬 messenger.exe</span><button class="x" onclick="closeW()">×</button></div>
+<div class="body"><div class="chat" id="msgs"></div><button class="btn" id="nx" onclick="nextMsg()">tap ▸</button></div></div></div>
+
+<div class="win" id="why"><div class="box"><div class="bar"><span>🪩 reasons.exe</span><button class="x" onclick="closeW()">×</button></div>
+<div class="body center"><div class="reason" id="rs"></div><button class="btn" id="rn" onclick="nextR()">start ▸</button></div></div></div>
+
+<div class="win" id="final"><div class="box"><div class="bar"><span>🔒 final_reveal.exe</span><button class="x" onclick="closeW()">×</button></div>
+<div class="body center" id="fin">
+<p>one last question...</p>
+<p class="q">will you be my passenger princess? 👀♡</p>
+<div class="row" id="rowb"><button class="btn" id="yb" onclick="yes()">YES ♡</button><button class="btn alt nobtn" id="no" onclick="no()">let me think</button></div><p class="tease" id="tz"></p>
+</div></div></div>
+
+<script>
+var opened={letter:0,chat:0,why:0},cur=null;
+function openW(id){
+  if(id==='final'&&!(opened.letter&&opened.chat&&opened.why)){document.getElementById('hint').textContent='not yet! open the other three first ♡';return}
+  cur=id;document.getElementById(id).classList.add('on');
+  if(opened.hasOwnProperty(id)){opened[id]=1;check()}
+}
+function jpLink(){return '<div id="jpSecret" style="opacity:0;transition:opacity 1.2s;margin-top:22px;padding-top:16px;border-top:2px dotted var(--accent)"><p><b>🇯🇵 SECRET FOUND</b></p><p><b>Japanese Lesson #001</b></p><button class="kana" onclick="showHint()">かわいい</button><p>I was told this means “cute.”</p><p>I may have already found someone to use it on.</p><p>👀</p><p>Don\'t make me say who.</p><div id="hintJp" style="display:none"><b>ヒント:</b><br>It\'s the person reading this. ♡</div></div>'}
+function revealJp(){setTimeout(function(){var e=document.getElementById('jpSecret');if(e){e.style.opacity=1;e.scrollIntoView({behavior:'smooth',block:'nearest'})}},2600)}
+function showHint(){document.getElementById("hintJp").style.display="block"}
+function closeW(){if(cur)document.getElementById(cur).classList.remove('on');cur=null}
+function check(){
+  if(opened.letter&&opened.chat&&opened.why){
+    var l=document.getElementById('lock');l.classList.remove('locked');
+    document.getElementById('lockI').textContent='🎀';document.getElementById('lockT').textContent='final_reveal.exe';
+    document.getElementById('hint').textContent='something unlocked ✦';
+  }
+}
+var M=["hey yuka 👀","okay don't judge me","i made something for you","yes, an entire website","yes, i know that's slightly ridiculous 😭","but we've been talking for a little while now","and i've genuinely enjoyed getting to know you","the dancing","the cooking","the cats","the japanese","the pastel y2k fashion","and all the other random little things you've told me","i don't know everything about you yet","and honestly, that's kinda the point","i want to keep getting to know you","because...","i kinda like you, yuka. ♡"],mi=0;
+function nextMsg(){
+  if(mi>=M.length)return;
+  var d=document.createElement('div');d.className='bub'+(mi===M.length-1?' big':'');d.textContent=M[mi++];
+  document.getElementById('msgs').appendChild(d);d.scrollIntoView({block:'nearest'});
+  if(mi>=M.length)document.getElementById('nx').style.display='none';
+}
+var R=["you get genuinely excited about the things you love","you've been dancing for five months and still won't show me the \"messy\" version because perfectionist™","you love cats. automatic points. 🐈","your pastel Y2K fashion obsession is honestly kinda cute","you have this collection of random interests that makes me want to know what you'll be obsessed with next"],ri=-1;
+function nextR(){
+  ri++;var s=document.getElementById('rs'),b=document.getElementById('rn');
+  if(ri<R.length){s.innerHTML='<div class="num">0'+(ri+1)+'</div><p>'+R[ri]+'</p>';b.textContent='next ▸'}
+  else if(ri===R.length){s.innerHTML='<p>and the biggest reason?</p>';b.textContent='tell me ▸'}
+  else{s.innerHTML='<p>I just really like talking to you.</p><p>I think I\'d like to keep doing that. ♡</p>';b.style.display='none'}
+}
+var nn=0,NO=["are you sure? 👀","hmm? think harder 🥺","the aux is waiting 🎧","I'll even let you pick the playlist ♡","i'll bring snacks 🍓","there are cats involved (probably) 🐈","I'll watch every dance video. every. single. one. 👀","you're blushing, aren't you? 🎀","the YES button is getting bigger btw ✦","it's literally right there ♡","okay last chance... pretty please? 🥹","fine, i'll just press it for you ♡"],TZ=["","aww, hesitating? 🥺","i can wait... but the button's looking cuter 👀","tiny me is doing a sad pole spin 💃","the stars are on my side ✦","resistance is futile (and adorable)","she's thinking so hard 🫠","","","","",""];
+function no(){
+  var b=document.getElementById('no'),y=document.getElementById('yb');nn++;
+  b.textContent=NO[Math.min(nn-1,NO.length-1)];
+  document.getElementById('tz').textContent=TZ[Math.min(nn,TZ.length-1)]||'';
+  y.style.transform='scale('+Math.min(1+nn*.16,2.1)+')';y.style.margin=(nn*3)+'px '+(nn*6)+'px';
+  b.style.transform='scale('+Math.max(1-nn*.07,.55)+') rotate('+(nn%2?-4:4)+'deg)';
+  if(nn>=NO.length){setTimeout(function(){yes(true)},900)}
+}
+function yes(auto){
+  var f=document.getElementById('fin'),hr='<hr style="border:0;border-top:2px dotted var(--accent);margin:18px 0">';
+  if(auto){
+    f.innerHTML='<p class="q">...did you just run out of "no"s? 😭</p><p>okay, i may have rigged that one a little 👀</p><p>but a "no" that turns into a yes after twelve tries?<br>i\'m counting that as a very enthusiastic <b>yes</b> ♡</p><p>(next time you can just press the big pink one, it was right there the whole time 🎀)</p><p>So: I\'ll handle the driving.<br>You handle the aux. 🎧</p>'+hr+'<p>okay, you got me. ♡</p><p>I guess this means I get to keep getting to know you.</p><p>P.S.<br>I\'m still waiting for that dancing video. 👀<br>(and yes, the "messy" version counts)</p><p class="sig">— soul ✦</p>'+jpLink();revealJp();
+    return;
+  }
+  f.innerHTML='<p class="q">excellent decision. ♡</p><p>I\'ll handle the driving.<br>You handle the aux. 🎧</p><p>Deal? ♡</p>'+hr+'<p>okay, you got me. ♡</p><p>I guess this means I get to keep getting to know you.</p><p>P.S.<br>I\'m still waiting for that dancing video. 👀</p><p class="sig">— soul ✦</p>'+jpLink();revealJp();
+}
+</script>
+</body>
+</html>
