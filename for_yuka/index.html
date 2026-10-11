@@ -180,7 +180,7 @@ body.dark #music h2.ttl{text-shadow:0 0 20px #ffc87a}
 .env .st{z-index:6}
 @media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
 </style>
-</head>S
+</head>
 <body>
 <a class="home" href="../index.html">♡ home</a>
 <div id="sky"></div>
@@ -207,7 +207,11 @@ body.dark #music h2.ttl{text-shadow:0 0 20px #ffc87a}
     <div class="banner">you're beautiful, yuka.</div>
     <div style="position:relative">
       <img class="st w1" src="stickers/bow.png" style="left:-26px;top:-34px;--r:-10deg;z-index:3" alt="">
-      <label class="frame" title="tap to add a photo"><input type="file" accept="image/*" id="ph" hidden><span id="phTxt">tap to add<br>your photo ♡</span></label>
+      <label class="frame" title="tap to change the photo">
+        <input type="file" accept="image/*" id="ph" hidden>
+        <img id="collagePhoto" src="photos/1.png" alt="Our photo" onerror="this.style.display='none';document.getElementById('phTxt').style.display='block'">
+        <span id="phTxt" style="display:none">tap to add<br>your photo ♡</span>
+      </label>
     </div>
     <div class="quote type">you are my sun, my moon, and all of my stars.</div>
     <img class="st rel" src="stickers/cat_tulips.png" style="--r:-3deg;width:clamp(170px,46vw,250px)" alt="">
@@ -297,51 +301,49 @@ $('env').onclick=()=>{$('env').classList.add('open');setTimeout(()=>$('intro').c
 /* reveal on scroll */
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');if(e.target.classList.contains('sheet'))[...e.target.querySelectorAll('p')].forEach((p,i)=>setTimeout(()=>p.classList.add('in'),i*700));io.unobserve(e.target)}}),{threshold:.2});
 document.querySelectorAll('.rv').forEach(e=>io.observe(e));
-/* photo */
-$('ph').onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{const i=new Image();i.src=r.result;$('phTxt').remove();document.querySelector('.frame').appendChild(i)};r.readAsDataURL(f)};
+/* collage photo: default to photos/1.png; allow choosing a replacement */
+$('ph').onchange=e=>{
+  const f=e.target.files[0];
+  if(!f)return;
+  const r=new FileReader();
+  r.onload=()=>{
+    const img=$('collagePhoto');
+    img.src=r.result;
+    img.style.display='block';
+    $('phTxt').style.display='none';
+  };
+  r.readAsDataURL(f);
+};
 /* cd cover: cover.jpg (or photos/cover.jpg), or tap the disc */
 (function(){const im=$('cdimg'),cd=$('disc');const put=src=>{im.src=src;cd.classList.add('photo')};
 $('cdf').onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>put(r.result);r.readAsDataURL(f)};
 ['cover.jpg','photos/cover.jpg'].forEach(p=>{const t=new Image();t.onload=()=>put(t.src);t.src=p})})();
-/* gallery */
-
-/* gallery - load 1.png, 2.png, 3.png from photos folder */
-document.querySelectorAll('.scr').forEach((sc, i) => {
-  const put = src => {
-    const old = sc.querySelector('img');
-    if (old) old.remove();
-
-    const im = new Image();
-    im.src = src;
-    im.alt = `Gallery photo ${i + 1}`;
-    sc.insertBefore(im, sc.querySelector('.fx'));
-
-    const sp = sc.querySelector('span');
-    if (sp) sp.style.display = 'none';
-
-    const fx = sc.querySelector('.fx');
+/* gallery: load photos/1.png, photos/2.png and photos/3.png */
+document.querySelectorAll('.scr').forEach((sc,i)=>{
+  const put=src=>{
+    let im=sc.querySelector('img');
+    if(!im){im=new Image();sc.insertBefore(im,sc.querySelector('.fx'));}
+    im.src=src;
+    im.alt=`Gallery photo ${i+1}`;
+    const sp=sc.querySelector('span');
+    if(sp)sp.style.display='none';
+    const fx=sc.querySelector('.fx');
     fx.classList.remove('go');
     void fx.offsetWidth;
     fx.classList.add('go');
   };
-
-  // Allow users to select a replacement photo
-  sc.querySelector('input').onchange = e => {
-    const f = e.target.files[0];
-    if (!f) return;
-
-    const r = new FileReader();
-    r.onload = () => put(r.result);
+  sc.querySelector('input').onchange=e=>{
+    const f=e.target.files[0];
+    if(!f)return;
+    const r=new FileReader();
+    r.onload=()=>put(r.result);
     r.readAsDataURL(f);
   };
-
-  // Automatically load the PNG from the photos folder
-  const img = new Image();
-  img.onload = () => put(img.src);
-  img.onerror = () => console.error(`Could not load photos/${i + 1}.png`);
-  img.src = `photos/${i + 1}.png`;
+  const img=new Image();
+  img.onload=()=>put(img.src);
+  img.onerror=()=>console.error(`Could not load photos/${i+1}.png`);
+  img.src=`photos/${i+1}.png`;
 });
-
 /* butterflies (your video, black background removed by screen blend) */
 if(!matchMedia('(prefers-reduced-motion:reduce)').matches){const BV=[],n=innerWidth<600?3:5;
 for(let i=0;i<n;i++){const v=document.createElement('video');v.src='video/butterfly.mp4';v.muted=true;v.loop=true;v.autoplay=true;v.setAttribute('playsinline','');v.setAttribute('muted','');v.className='bfly';const sz=170+Math.random()*110;v.style.width=v.style.height=sz+'px';document.body.appendChild(v);
