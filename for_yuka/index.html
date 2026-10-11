@@ -304,11 +304,44 @@ $('ph').onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileRead
 $('cdf').onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>put(r.result);r.readAsDataURL(f)};
 ['cover.jpg','photos/cover.jpg'].forEach(p=>{const t=new Image();t.onload=()=>put(t.src);t.src=p})})();
 /* gallery */
-document.querySelectorAll('.scr').forEach((sc,i)=>{
-  const put=src=>{const old=sc.querySelector('img');if(old)old.remove();const im=new Image();im.src=src;sc.insertBefore(im,sc.querySelector('.fx'));const sp=sc.querySelector('span');if(sp)sp.style.display='none';const fx=sc.querySelector('.fx');fx.classList.remove('go');void fx.offsetWidth;fx.classList.add('go')};
-  sc.querySelector('input').onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>put(r.result);r.readAsDataURL(f)};
-  const t=new Image();t.onload=()=>put(t.src);t.src='photos/'+(i+1)+'.jpg';
+
+/* gallery - load 1.png, 2.png, 3.png from photos folder */
+document.querySelectorAll('.scr').forEach((sc, i) => {
+  const put = src => {
+    const old = sc.querySelector('img');
+    if (old) old.remove();
+
+    const im = new Image();
+    im.src = src;
+    im.alt = `Gallery photo ${i + 1}`;
+    sc.insertBefore(im, sc.querySelector('.fx'));
+
+    const sp = sc.querySelector('span');
+    if (sp) sp.style.display = 'none';
+
+    const fx = sc.querySelector('.fx');
+    fx.classList.remove('go');
+    void fx.offsetWidth;
+    fx.classList.add('go');
+  };
+
+  // Allow users to select a replacement photo
+  sc.querySelector('input').onchange = e => {
+    const f = e.target.files[0];
+    if (!f) return;
+
+    const r = new FileReader();
+    r.onload = () => put(r.result);
+    r.readAsDataURL(f);
+  };
+
+  // Automatically load the PNG from the photos folder
+  const img = new Image();
+  img.onload = () => put(img.src);
+  img.onerror = () => console.error(`Could not load photos/${i + 1}.png`);
+  img.src = `photos/${i + 1}.png`;
 });
+
 /* butterflies (your video, black background removed by screen blend) */
 if(!matchMedia('(prefers-reduced-motion:reduce)').matches){const BV=[],n=innerWidth<600?3:5;
 for(let i=0;i<n;i++){const v=document.createElement('video');v.src='video/butterfly.mp4';v.muted=true;v.loop=true;v.autoplay=true;v.setAttribute('playsinline','');v.setAttribute('muted','');v.className='bfly';const sz=170+Math.random()*110;v.style.width=v.style.height=sz+'px';document.body.appendChild(v);
