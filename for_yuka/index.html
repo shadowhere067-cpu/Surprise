@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f3b8d2">
+<title>letters for you ♡</title>
+<style>
+:root{--rose:#b65d8d;--ink:#5a3a4a;--wine:#5a0f1c;--gold:#d9b36a}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:ui-rounded,"Trebuchet MS",system-ui,sans-serif;color:var(--ink);background:#f6cadc;overflow-x:hidden}
+.script{font-family:"Brush Script MT","Segoe Script","Snell Roundhand",cursive}
+.type{font-family:"Courier New",monospace}
+#sky{position:fixed;inset:0;pointer-events:none;z-index:50;overflow:hidden}
+.fl{position:absolute;bottom:-50px;animation:up linear forwards;opacity:0}
+@keyframes up{0%{transform:translateY(0) rotate(-10deg);opacity:0}10%{opacity:.85}85%{opacity:.7}100%{transform:translateY(-115vh) translateX(40px) rotate(30deg);opacity:0}}
+.spark{position:fixed;pointer-events:none;z-index:60;animation:sp .9s forwards;font-size:14px}
+@keyframes sp{to{transform:translateY(-26px) scale(.2) rotate(90deg);opacity:0}}
+
+/* INTRO */
+#intro{position:fixed;inset:0;z-index:40;background:linear-gradient(#fff4f8aa,#ffd3e4aa),url(stickers/cherry.jpg) center/cover;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;transition:opacity 1s,visibility 1s}
+#intro.gone{opacity:0;visibility:hidden}
+#intro h2{font-size:clamp(2.4rem,9vw,3.8rem);margin:0;color:#a8473f;font-weight:400}
+.env{position:relative;width:min(300px,76vw);height:200px;cursor:pointer;animation:bob 3s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-10px) rotate(1.5deg)}}
+.env .back{position:absolute;inset:0;background:#c4473a;border-radius:6px;box-shadow:0 18px 40px #8a2a2540}
+.env .paper{position:absolute;left:8%;right:8%;top:8%;bottom:8%;background:#fff8ea;border-radius:4px;display:grid;place-items:center;font-size:2rem;transition:transform .9s .35s}
+.env .front{position:absolute;inset:0;background:linear-gradient(135deg,#d85a4a 50%,transparent 50%),linear-gradient(225deg,#d85a4a 50%,transparent 50%),#cf4f42;clip-path:polygon(0 0,50% 58%,100% 0,100% 100%,0 100%);clip-path:polygon(0 100%,0 0,50% 55%,100% 0,100% 100%);border-radius:6px}
+.env .flap{position:absolute;left:0;right:0;top:0;height:60%;background:#b93d33;clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;transition:transform .6s;z-index:3}
+.env .seal{position:absolute;left:50%;top:48%;transform:translate(-50%,-50%);width:48px;height:48px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff2d6,#e4c690);display:grid;place-items:center;z-index:4;color:#a8473f;font-size:1.3rem;box-shadow:0 3px 8px #0003;transition:opacity .3s}
+.env.open .flap{transform:rotateX(180deg);z-index:1}
+.env.open .seal{opacity:0}
+.env.open .paper{transform:translateY(-95px)}
+.hint{color:#a8473f;font-size:.9rem;letter-spacing:.12em;animation:pulse 1.8s infinite}
+@keyframes pulse{50%{opacity:.35}}
+
+/* sections */
+section{position:relative;padding:60px 16px;display:flex;justify-content:center}
+.rv{opacity:0;transform:translateY(30px);transition:opacity .9s,transform .9s}
+.rv.in{opacity:1;transform:none}
+
+/* COLLAGE */
+#collage{background:linear-gradient(160deg,#eaa8c2cc,#f6cddb99 45%,#e79bb6cc),url(stickers/cherry.jpg) center/cover;min-height:100vh;align-items:center;overflow:hidden}
+#collage:before{content:"";display:none;position:absolute;inset:0;font-size:260px;color:#d9789d44;line-height:1;word-spacing:40px;overflow:hidden;pointer-events:none}
+.col{position:relative;width:min(420px,100%);text-align:center}
+.tape{display:inline-block;background:#ecd9b0;padding:6px 14px;margin:3px;box-shadow:1px 2px 4px #0002;transform:rotate(-2deg);font-size:.95rem}
+.tape.b{transform:rotate(1.5deg)}
+.banner{margin:16px 0;background:#f4a9c6;border:4px solid #c2255c;border-radius:12px;padding:10px 14px;font-size:clamp(1.9rem,8vw,2.6rem);font-family:Georgia,serif;color:#2a1520;transform:rotate(-1deg)}
+.frame{position:relative;width:78%;aspect-ratio:3/4;margin:10px auto;background:#7d3a4a;border-radius:26px;border:6px solid #f6e8e8;box-shadow:0 14px 34px #7d3a4a66;display:grid;place-items:center;cursor:pointer;overflow:hidden;color:#f6dfe6}
+.frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.frame span{font-size:1.5rem;text-align:center;padding:10px}
+.bow{position:absolute;left:-10px;top:-24px;font-size:3.2rem;z-index:2;animation:wig 3s ease-in-out infinite}
+@keyframes wig{50%{transform:rotate(10deg) scale(1.08)}}
+.quote{display:inline-block;background:#f6efdd;padding:8px 12px;margin:6px;font-size:.9rem;transform:rotate(-2deg);box-shadow:1px 2px 5px #0002;max-width:80%}
+.bf{position:absolute;font-size:2.4rem;animation:fly 9s ease-in-out infinite}
+@keyframes fly{0%,100%{transform:translate(0,0) rotate(-10deg)}50%{transform:translate(26px,-30px) rotate(14deg)}}
+.tulips{font-size:2.6rem;margin-top:12px;letter-spacing:.1em}
+.tulips span{display:inline-block;animation:sway 3s ease-in-out infinite;transform-origin:bottom}
+.tulips span:nth-child(2n){animation-delay:.6s}.tulips span:nth-child(3n){animation-delay:1.2s}
+@keyframes sway{50%{transform:rotate(9deg)}}
+
+/* LETTER */
+#letter{background:#e8c9a0;overflow:hidden}
+.sheet{position:relative;z-index:1;width:min(560px,100%);padding:clamp(28px,7vw,56px) clamp(22px,6vw,48px);color:#4b3322;line-height:1.85;border-radius:3px;box-shadow:0 20px 50px #5a381a55;
+background:
+linear-gradient(90deg,transparent 49.6%,#0000001c 50%,transparent 50.4%),
+linear-gradient(transparent 33%,#00000012 33.3%,transparent 33.6%,transparent 66%,#00000012 66.3%,transparent 66.6%),
+radial-gradient(circle at 20% 30%,#c9953c33,transparent 30%),radial-gradient(circle at 80% 70%,#c9953c33,transparent 35%),#f2dfb4}
+.sheet h3{margin:0 0 14px;font-size:2.2rem;color:#8c3a4a;font-weight:400}
+.sheet p{margin:0 0 14px;opacity:0;transform:translateY(8px);transition:opacity .8s,transform .8s}
+.sheet p.in{opacity:1;transform:none}
+.lips{position:absolute;top:-12px;right:-8px;font-size:3rem;transform:rotate(18deg);mix-blend-mode:multiply;filter:saturate(.8)}
+.lips.two{top:34px;right:34px;font-size:2.2rem;transform:rotate(-10deg)}
+.hearts{position:absolute;left:14px;bottom:16px;display:flex;flex-direction:column;gap:8px;color:#b3202f}
+.hearts i{font-style:normal;animation:beat 1.4s infinite}.hearts i:nth-child(2n){animation-delay:.4s;margin-left:14px}
+@keyframes beat{50%{transform:scale(1.3)}}
+.stars{position:absolute;right:16px;bottom:14px;color:#2d5a52;font-size:1.3rem;animation:twk 2.4s infinite}
+@keyframes twk{50%{opacity:.3;transform:rotate(30deg)}}
+.sig{text-align:right;font-size:1.7rem;color:#8c3a4a;margin-top:20px}
+
+/* PLAYER */
+#music{min-height:100vh;align-items:center;flex-direction:column;gap:22px;background:
+radial-gradient(circle at 50% 50%,#d9b36a33 0 6px,transparent 7px) 0 0/46px 46px,
+repeating-conic-gradient(from 45deg at 50% 50%,#6e0f1f 0 25%,#4a0912 0 50%) 0 0/70px 70px,#4a0912;color:#fbe8ee;overflow:hidden}
+.roses{position:absolute;font-size:5rem;opacity:.9;pointer-events:none}
+.pl{position:relative;width:min(400px,100%);background:#2b0a10ee;border:1px solid #d9b36a55;border-radius:24px;padding:22px;box-shadow:0 20px 50px #0008;backdrop-filter:blur(6px)}
+.disc{width:150px;height:150px;margin:0 auto 14px;border-radius:50%;background:radial-gradient(circle,#f3b8d2 0 14%,#1a0508 15% 40%,#2e0b12 41% 43%,#1a0508 44% 70%,#34101a 71% 72%,#1a0508 73%);box-shadow:0 0 0 4px #d9b36a55,0 10px 30px #0009;animation:spin 6s linear infinite;animation-play-state:paused;display:grid;place-items:center;font-size:1.5rem}
+.disc.on{animation-play-state:running}
+@keyframes spin{to{transform:rotate(360deg)}}
+.pl h4{margin:0;font-size:1.15rem}.pl small{color:#e3b2c1}
+.bar{height:6px;background:#ffffff26;border-radius:9px;margin:16px 0 6px;cursor:pointer;position:relative}
+.bar i{position:absolute;left:0;top:0;bottom:0;width:0;background:linear-gradient(90deg,#f3b8d2,#d9b36a);border-radius:9px}
+.tm{display:flex;justify-content:space-between;font-size:.75rem;color:#e3b2c1}
+.pb{width:58px;height:58px;border-radius:50%;border:0;background:#fff5f8;color:#5a0f1c;font-size:1.4rem;cursor:pointer;display:block;margin:12px auto 0;transition:transform .2s}
+.pb:hover{transform:scale(1.1)}
+.lyr{height:190px;overflow:hidden;margin-top:16px;text-align:center;position:relative;mask-image:linear-gradient(transparent,#000 25%,#000 75%,transparent)}
+.lyr div{transition:transform .5s}
+.lyr p{margin:0;padding:7px 4px;font-size:1.05rem;color:#ffffff55;transition:all .4s}
+.lyr p.on{color:#fff;font-size:1.25rem;text-shadow:0 0 14px #f3b8d2}
+.load{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:12px}
+.load label{font-size:.75rem;background:#ffffff1c;padding:6px 12px;border-radius:99px;cursor:pointer}
+.load input{display:none}
+.msg{font-size:.78rem;color:#e3b2c1;text-align:center;margin-top:8px;min-height:1em}
+footer{text-align:center;padding:30px;background:#4a0912;color:#e3b2c1;font-size:.9rem}
+/* GALLERY */
+#gallery{min-height:100vh;align-items:center;flex-direction:column;gap:18px;overflow:hidden;background:
+repeating-linear-gradient(0deg,#00000014 0 1px,transparent 1px 4px),repeating-linear-gradient(90deg,#00000014 0 1px,transparent 1px 4px),linear-gradient(135deg,#8e1b1b,#5e0d12)}
+#gallery:before{content:"";position:absolute;left:0;bottom:0;width:34%;height:24%;background:
+repeating-conic-gradient(#c8332f 0 25%,#f1e6cf 0 50%) 0 0/44px 44px;opacity:.95}
+#gallery:after{content:"";position:absolute;left:-14px;top:70px;width:30%;height:48%;background:repeating-linear-gradient(#f0e6d2 0 30px,#e2d4b8 30px 31px);transform:rotate(-3deg);opacity:.9;box-shadow:0 8px 20px #0005}
+.gt{position:relative;z-index:3;font-size:clamp(2rem,8vw,2.8rem);color:#fbe8ee;margin:0;font-weight:400;text-align:center;text-shadow:0 3px 14px #0008}
+.gnote{position:absolute;left:3%;top:100px;width:26%;z-index:1;font-size:clamp(.8rem,3vw,1.15rem);color:#3d3226;line-height:1.5;transform:rotate(-3deg);opacity:.8;pointer-events:none}
+.board{position:relative;z-index:2;width:min(440px,94%);padding:16px;background:repeating-linear-gradient(0deg,#0000000f 0 1px,transparent 1px 3px),repeating-linear-gradient(90deg,#0000000f 0 1px,transparent 1px 3px),#b9ab95;box-shadow:0 20px 50px #000a}
+.inner{padding:14px 6px;background:linear-gradient(#5a0f1caa,#5a0f1caa),url(stickers/lips.png) center/cover;display:flex;flex-direction:column;gap:2px}
+.cam{position:relative;display:flex;gap:10px;padding:14px 12px;border-radius:12px;background:linear-gradient(160deg,#b0302a,#7a1410 70%);box-shadow:0 10px 20px #0008,inset 0 0 0 1px #ff9a8a44;transform:rotate(var(--r,0deg));margin-bottom:-4px}
+.cam:before{content:"";position:absolute;top:-7px;right:16%;width:26%;height:8px;border-radius:5px 5px 0 0;background:linear-gradient(#e8e8e8,#8a8a8a)}
+.scr{position:relative;flex:1;aspect-ratio:4/3;border:6px solid #1c0707;border-radius:5px;background:#222 radial-gradient(circle,#383838,#181818);overflow:hidden;cursor:pointer;display:grid;place-items:center;color:#cfa9b3;font-size:.8rem;text-align:center}
+.scr img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.scr .fx{position:absolute;inset:0;background:#fff;opacity:0;pointer-events:none}
+.scr .fx.go{animation:flash .5s}
+@keyframes flash{0%{opacity:1}100%{opacity:0}}
+.ctl{width:27%;display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:4px 0;color:#f0c3bd;font-size:.5rem;letter-spacing:.04em}
+.rec{width:16px;height:16px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ff7b6e,#b3150f);box-shadow:0 0 0 3px #d9d9d9}
+.dial{width:68%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,#777 0 22%,#c9c9c9 24% 60%,#8c8c8c 62%);box-shadow:0 2px 6px #0007;display:grid;place-items:center;font-size:.45rem;color:#333;font-weight:700}
+.ctl .lb{display:flex;gap:8px}
+.seal{}
+.waxs{position:absolute;z-index:4;width:62px;height:62px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#a8283a,#5c0a17);box-shadow:0 4px 10px #0007,inset 0 0 0 4px #7a1424;display:grid;place-items:center;color:#d87a8c;font-size:1.5rem;left:5%;bottom:6%}
+.gm{z-index:3;font-size:.8rem;color:#f3cfd8;text-align:center;position:relative;margin:0}
+
+/* DANCE */
+.pl{z-index:30}
+#music h2.ttl{position:relative;z-index:30}
+#music{--dw:clamp(260px,64vw,440px);padding-bottom:calc(var(--dw)*.86)}
+#music:before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 90%,#ffb36a55,transparent 55%),radial-gradient(ellipse at 50% 50%,transparent 40%,#1a0508aa);pointer-events:none}
+.dwrap{position:absolute;left:50%;bottom:0;width:var(--dw);transform:translateX(-50%);z-index:31;pointer-events:none}
+.dance{width:100%;display:block;filter:drop-shadow(0 0 26px #ff9a4dbb) drop-shadow(0 0 60px #ff6b8a66);animation:dnc 6s ease-in-out infinite;animation-play-state:paused;transform-origin:50% 100%}
+.dance.on{animation-play-state:running}
+@keyframes dnc{0%,100%{transform:translateX(-14px) rotate(-1.6deg)}25%{transform:translateY(-8px) rotate(0)}50%{transform:translateX(14px) rotate(1.6deg)}75%{transform:translateY(-8px) rotate(0)}}
+.ff{position:absolute;width:6px;height:6px;border-radius:50%;background:#ffe3a3;box-shadow:0 0 12px 4px #ffc866aa;animation:ffl 5s ease-in-out infinite;pointer-events:none;z-index:25}
+@keyframes ffl{0%,100%{transform:translate(0,0) scale(.6);opacity:.2}50%{transform:translate(18px,-26px) scale(1.2);opacity:1}}
+.env .seal{background:none;box-shadow:none;border-radius:0;width:66px;height:auto;filter:drop-shadow(0 3px 6px #0006);font-size:0}
+.duo{display:flex;justify-content:center;align-items:center;gap:6px}
+.duo .st{position:relative;width:clamp(70px,20vw,100px);margin:0}
+footer{position:relative;padding:44px 16px 34px}
+footer .script{font-size:1.7rem;color:#f8c6da;margin:6px 0 0}
+/* LIVE WALLPAPER */
+#vbg{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;z-index:19;pointer-events:none;opacity:0;transition:opacity 1.6s;background:#000}
+body.dark #vbg{opacity:1}
+/* CD */
+.disc.cd{width:170px;height:170px;position:relative;overflow:hidden;cursor:pointer;font-size:0;background:radial-gradient(circle at 35% 30%,#ffe3ee,#f3a3c2 55%,#b65d8d);box-shadow:0 0 0 4px #d9b36a66,0 0 0 8px #ffffff18,0 12px 30px #000a}
+.cd img{position:absolute;inset:10%;width:80%;height:80%;object-fit:contain}
+.cd.photo img{inset:0;width:100%;height:100%;object-fit:cover}
+.cd .shine{position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 20deg,#ff9ad566,#9ad7ff66,#fff3a066,#b69aff66,#9affd266,#ff9ad566);mix-blend-mode:overlay}
+.cd .ring{position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle,transparent 0 17%,#ffffff55 17.5% 18.5%,transparent 19% 94%,#ffffff44 94.5% 96%,transparent 96.5%)}
+.cd .hole{position:absolute;left:50%;top:50%;width:32px;height:32px;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,#2b0a10 0 36%,#f1f1f6 38% 60%,#b9b9c6 62%);box-shadow:0 0 0 5px #ffffff3a,inset 0 0 4px #0009}
+/* SHOWLIGHT */
+#dim{position:fixed;inset:0;z-index:20;pointer-events:none;opacity:0;transition:opacity 1.4s;background:radial-gradient(ellipse 60% 75% at 50% 55%,#00000030,#000000b8 82%)}
+#dim:before{content:"";position:absolute;top:0;left:50%;width:min(720px,120vw);height:100%;transform:translateX(-50%);clip-path:polygon(45% 0,55% 0,100% 100%,0 100%);background:linear-gradient(#ffe6b8cc,#ffcf96 35%,#ff9a6a22 85%,transparent);mix-blend-mode:screen;opacity:.35;animation:beam 5s ease-in-out infinite}
+@keyframes beam{50%{opacity:.5}}
+body.dark #dim{opacity:1}
+body.dark #sky{opacity:.25;transition:opacity 1.4s}
+.pl{transition:box-shadow 1.4s}
+body.dark .pl{box-shadow:0 0 80px #ffb36a66,0 0 0 1px #ffd9a055,0 20px 50px #000}
+body.dark .dance{filter:drop-shadow(0 0 30px #ffb36aee) drop-shadow(0 0 80px #ff7a9a88)}
+body.dark #music h2.ttl{text-shadow:0 0 20px #ffc87a}
+.setup{position:absolute;top:10px;left:14px;z-index:5;font-size:.7rem;color:#e3b2c1}
+.setup summary{cursor:pointer;list-style:none;opacity:.6}
+.setup[open]{background:#2b0a10;padding:8px 10px;border-radius:12px;border:1px solid #d9b36a44}
+.setup .load{margin-top:8px}
+.bfly{position:fixed;left:0;top:0;pointer-events:none;z-index:49;mix-blend-mode:screen;opacity:.95;will-change:transform;background:#000;border:0}
+.home{position:fixed;left:10px;top:10px;z-index:60;background:#ffffffd9;color:#a8473f;text-decoration:none;font-size:.78rem;padding:6px 12px;border-radius:99px;box-shadow:0 4px 14px #0003;backdrop-filter:blur(6px)}
+/* STICKERS */
+.st{position:absolute;pointer-events:none;height:auto;filter:drop-shadow(0 6px 8px #0004);transform:rotate(var(--r,0deg));animation:sw 6s ease-in-out infinite;z-index:2}
+@keyframes sw{50%{transform:rotate(calc(var(--r,0deg) + 5deg)) translateY(-7px)}}
+.st.rel{position:relative;display:block;margin:12px auto 0}
+.st.d2{animation-delay:-2s}.st.d3{animation-delay:-4s}
+.w1{width:clamp(80px,22vw,150px)}.w2{width:clamp(110px,30vw,230px)}.w3{width:clamp(140px,38vw,300px)}
+#intro .st{z-index:1}
+.env .st{z-index:6}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>S
+<body>
+<a class="home" href="../index.html">♡ home</a>
+<div id="sky"></div>
+<video id="vbg" src="video/bg.mp4" muted loop playsinline preload="auto" aria-hidden="true"></video>
+<div id="dim"></div>
+
+<div id="intro">
+  <h2 class="script">Letters For You</h2>
+  <img class="st w3" src="stickers/flowers.png" style="right:-40px;top:-20px;--r:8deg" alt="">
+  <img class="st w2 d2" src="stickers/tulips.png" style="left:-10px;bottom:-30px;--r:-10deg" alt="">
+  <img class="st d3" src="stickers/cat_whisker.png" style="right:3%;bottom:5%;width:clamp(110px,28vw,180px);--r:8deg" alt="">
+  <img class="st w1 d3" src="stickers/seal_pink.png" style="left:9%;top:14%;--r:-12deg" alt="">
+  <div class="env" id="env"><img class="st w1" src="stickers/bow.png" style="left:-34px;top:-30px;--r:-12deg" alt=""><div class="back"></div><div class="paper">♡</div><div class="front"></div><div class="flap"></div><img class="seal" src="stickers/seal_red.png" alt=""></div>
+  <div class="hint">tap the envelope</div>
+</div>
+
+<section id="collage">
+  <img class="st w3" src="stickers/flowers.png" style="right:-50px;top:-30px;--r:6deg" alt="">
+  <img class="st w1 d2" src="stickers/envelopes.png" style="left:2%;top:34px;--r:-14deg" alt="">
+  <img class="st w2 d3" src="stickers/iloveyou.png" style="left:-40px;bottom:6%;--r:-8deg;opacity:.95" alt="">
+  <span class="bf" style="left:6%;top:18%">🦋</span><span class="bf" style="right:6%;top:55%;animation-delay:2s">🦋</span>
+  <div class="col rv">
+    <div class="tape type">in this world</div><br><div class="tape b type">it's just us</div>
+    <div class="banner">you're beautiful, yuka.</div>
+    <div style="position:relative">
+      <img class="st w1" src="stickers/bow.png" style="left:-26px;top:-34px;--r:-10deg;z-index:3" alt="">
+      <label class="frame" title="tap to add a photo"><input type="file" accept="image/*" id="ph" hidden><span id="phTxt">tap to add<br>your photo ♡</span></label>
+    </div>
+    <div class="quote type">you are my sun, my moon, and all of my stars.</div>
+    <img class="st rel" src="stickers/cat_tulips.png" style="--r:-3deg;width:clamp(170px,46vw,250px)" alt="">
+    <p class="hint" style="margin-top:20px">scroll down, there's a letter ↓</p>
+  </div>
+</section>
+
+<section id="letter">
+  <img class="st w2" src="stickers/lips.png" style="left:-30px;top:10%;--r:-6deg;z-index:0" alt="">
+  <img class="st w2 d2" src="stickers/iloveyou.png" style="right:-40px;bottom:6%;--r:14deg;z-index:0" alt="">
+  <div class="sheet rv">
+    <img class="st w1 d3" src="stickers/bow.png" style="left:-22px;top:-26px;--r:-14deg;z-index:3" alt="">
+    <img class="st w1" src="stickers/envelopes.png" style="right:-12px;bottom:-26px;--r:10deg;z-index:3" alt="">
+    <h3 class="script">dear yuka,</h3>
+    <p>okay, so… there's something I wanted you to hear from me.</p>
+    <p>Yuka, you're beautiful. Like, genuinely beautiful. ♡</p>
+    <p>But not just in that magazine-cover, movie-star kind of way.</p>
+    <p>You're beautiful in the way you light up when you talk about something you love. I wish you could see yourself in those moments.</p>
+    <p>You're beautiful in the way your mind works, in all the little things you're curious about, and in the way you get excited telling me about them.</p>
+    <p>You're beautiful in the way you can make someone smile without even realizing you're doing it.</p>
+    <p>And sure, looks might be the first thing someone notices. But that's not what makes me say this to you.</p>
+    <p>It's the person you are underneath all of that. The parts of you I'm still getting to know, and honestly, the parts I want to keep discovering.</p>
+    <p>You're beautiful in a way that goes deeper than your looks — right down to your soul. ♡</p>
+    <div class="sig script">— soul ✦</div>
+    <div class="hearts"><i>♥</i><i>♥</i><i>♥</i><i>♥</i></div>
+    <div class="stars">✦ ✧ ✦</div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="gnote script">for you,<br>always ♡<br>every little moment,<br>saved here…</div>
+  <h2 class="gt script rv">My Lucky Charm</h2>
+  <div class="board rv">
+    <img class="st w1" src="stickers/bow.png" style="left:-28px;top:-34px;--r:-10deg;z-index:5" alt="">
+    <div class="inner">
+      <div class="cam" style="--r:-2deg"><label class="scr"><input type="file" accept="image/*" hidden><span>tap to add<br>photo ♡</span><i class="fx"></i></label><div class="ctl"><span class="rec"></span><span class="dial">MENU</span><span class="lb"><b>DISPLAY</b><b>Q.MENU</b></span></div></div>
+      <div class="cam" style="--r:1.5deg;margin-left:6px"><label class="scr"><input type="file" accept="image/*" hidden><span>tap to add<br>photo ♡</span><i class="fx"></i></label><div class="ctl"><span class="rec"></span><span class="dial">MENU</span><span class="lb"><b>DISPLAY</b><b>Q.MENU</b></span></div></div>
+      <div class="cam" style="--r:-2.5deg"><label class="scr"><input type="file" accept="image/*" hidden><span>tap to add<br>photo ♡</span><i class="fx"></i></label><div class="ctl"><span class="rec"></span><span class="dial">MENU</span><span class="lb"><b>DISPLAY</b><b>Q.MENU</b></span></div></div>
+    </div>
+    <img class="st d3" src="stickers/seal_pink.png" style="right:-16px;top:-26px;width:clamp(54px,15vw,76px);--r:12deg;z-index:5" alt="">
+    <img class="st w2 d2" src="stickers/flowers.png" style="right:-40px;bottom:-60px;--r:12deg;z-index:5;width:clamp(100px,26vw,170px)" alt="">
+  </div>
+  <img class="st" src="stickers/seal_red.png" style="left:5%;bottom:5%;width:clamp(56px,16vw,84px);--r:-8deg;z-index:4" alt="">
+  <p class="gm">each frame is a little memory ♡</p>
+  <img class="st rel" src="stickers/forever.png" style="width:min(250px,60%);--r:-2deg;z-index:3" alt="">
+  <img class="st d2" src="stickers/cat_camera.png" style="right:2%;bottom:1%;width:clamp(86px,22vw,140px);--r:6deg;z-index:4" alt="">
+</section>
+
+<section id="music">
+  <img class="st w3" src="stickers/flowers.png" style="left:-60px;top:-30px;--r:-8deg" alt="">
+  <img class="st w3 d2" src="stickers/flowers.png" style="right:-70px;bottom:-30px;--r:170deg" alt="">
+  <img class="st w2 d3" src="stickers/tulips.png" style="left:-6px;bottom:-20px;--r:-6deg" alt="">
+  <h2 class="script rv ttl" style="font-size:2.4rem;margin:0;font-weight:400">a song for you</h2>
+  <div class="dwrap"><img class="dance" id="dance" src="stickers/dance.png" alt=""></div>
+  <div class="pl rv"><img class="st w1" src="stickers/bow.png" style="right:-18px;top:-26px;--r:12deg" alt="">
+    <details class="setup"><summary>⚙ setup</summary><div class="load">
+      <label>♫ choose song<input type="file" accept="audio/*" id="fa"></label>
+      <label>✎ choose .lrc lyrics<input type="file" accept=".lrc,.txt" id="fl"></label>
+    </div></details>
+    <label class="disc cd" id="disc" title="tap to put a photo on the CD ♡"><img id="cdimg" src="stickers/cat_whisker.png" alt=""><i class="shine"></i><i class="ring"></i><i class="hole"></i><input type="file" accept="image/*" id="cdf" hidden></label>
+    <h4>Perfect</h4><small>Ed Sheeran</small>
+    <div class="bar" id="bar"><i id="fill"></i></div>
+    <div class="tm"><span id="cur">0:00</span><span id="dur">0:00</span></div>
+    <button class="pb" id="pb" aria-label="play">▶</button>
+    <div class="lyr"><div id="lines"></div></div>
+    <div class="msg" id="msg"></div>
+    <audio id="au" src="perfect.mp3" preload="auto"></audio>
+  </div>
+</section>
+<footer>
+  <div class="duo"><img class="st rel" src="stickers/seal_pink.png" style="--r:-8deg" alt=""><img class="st rel d2" src="stickers/seal_red.png" style="--r:8deg" alt=""></div>
+  <div class="script">your pink, my red ♡</div>
+  <p>made with a little too much thought, and a lot of fondness ♡</p>
+</footer>
+
+<script>
+const $=id=>document.getElementById(id);
+/* floating things */
+const sky=$('sky'),sy=['♡','🌸','🦋','✧','💗','🌷','♥'];
+function fl(){const e=document.createElement('span');e.className='fl';e.textContent=sy[Math.random()*sy.length|0];e.style.left=Math.random()*100+'%';e.style.fontSize=14+Math.random()*20+'px';e.style.animationDuration=9+Math.random()*8+'s';sky.appendChild(e);setTimeout(()=>e.remove(),18000)}
+setInterval(fl,700);for(let i=0;i<8;i++)setTimeout(fl,i*250);
+/* sparkle trail */
+let last=0;addEventListener('pointermove',e=>{const n=Date.now();if(n-last<70)return;last=n;const s=document.createElement('span');s.className='spark';s.textContent=['✦','♡','✧'][Math.random()*3|0];s.style.left=e.clientX+'px';s.style.top=e.clientY+'px';s.style.color='#d9578f';document.body.appendChild(s);setTimeout(()=>s.remove(),900)});
+/* envelope */
+if(location.hash){const i=$('intro');i.style.transition='none';i.classList.add('gone')}
+$('env').onclick=()=>{$('env').classList.add('open');setTimeout(()=>$('intro').classList.add('gone'),1500)};
+/* reveal on scroll */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');if(e.target.classList.contains('sheet'))[...e.target.querySelectorAll('p')].forEach((p,i)=>setTimeout(()=>p.classList.add('in'),i*700));io.unobserve(e.target)}}),{threshold:.2});
+document.querySelectorAll('.rv').forEach(e=>io.observe(e));
+/* photo */
+$('ph').onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{const i=new Image();i.src=r.result;$('phTxt').remove();document.querySelector('.frame').appendChild(i)};r.readAsDataURL(f)};
+/* cd cover: cover.jpg (or photos/cover.jpg), or tap the disc */
+(function(){const im=$('cdimg'),cd=$('disc');const put=src=>{im.src=src;cd.classList.add('photo')};
+$('cdf').onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>put(r.result);r.readAsDataURL(f)};
+['cover.jpg','photos/cover.jpg'].forEach(p=>{const t=new Image();t.onload=()=>put(t.src);t.src=p})})();
+/* gallery */
+document.querySelectorAll('.scr').forEach((sc,i)=>{
+  const put=src=>{const old=sc.querySelector('img');if(old)old.remove();const im=new Image();im.src=src;sc.insertBefore(im,sc.querySelector('.fx'));const sp=sc.querySelector('span');if(sp)sp.style.display='none';const fx=sc.querySelector('.fx');fx.classList.remove('go');void fx.offsetWidth;fx.classList.add('go')};
+  sc.querySelector('input').onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>put(r.result);r.readAsDataURL(f)};
+  const t=new Image();t.onload=()=>put(t.src);t.src='photos/'+(i+1)+'.jpg';
+});
+/* butterflies (your video, black background removed by screen blend) */
+if(!matchMedia('(prefers-reduced-motion:reduce)').matches){const BV=[],n=innerWidth<600?3:5;
+for(let i=0;i<n;i++){const v=document.createElement('video');v.src='video/butterfly.mp4';v.muted=true;v.loop=true;v.autoplay=true;v.setAttribute('playsinline','');v.setAttribute('muted','');v.className='bfly';const sz=170+Math.random()*110;v.style.width=v.style.height=sz+'px';document.body.appendChild(v);
+v.addEventListener('loadedmetadata',()=>{v.currentTime=Math.random()*v.duration;v.play().catch(()=>{})});v.play().catch(()=>{});
+BV.push({el:v,sz,x:Math.random()*innerWidth,y:Math.random()*innerHeight,h:Math.random()*6.28,sp:.6+Math.random()*.6,t:Math.random()*9,a:0})}
+(function tick(){BV.forEach(b=>{b.t+=.02;b.h+=Math.sin(b.t*.8)*.018;b.x+=Math.cos(b.h)*b.sp;b.y+=Math.sin(b.h)*b.sp*.8-.15;const m=b.sz;if(b.x<-m)b.x=innerWidth+m/2;if(b.x>innerWidth+m)b.x=-m/2;if(b.y<-m)b.y=innerHeight+m/2;if(b.y>innerHeight+m)b.y=-m/2;
+b.a+=((((b.h*57.3+90)-b.a+540)%360)-180)*.04;b.el.style.transform='translate('+(b.x-b.sz/2)+'px,'+(b.y-b.sz/2)+'px) rotate('+b.a+'deg)'});requestAnimationFrame(tick)})()}
+/* fireflies */
+for(let i=0;i<16;i++){const f=document.createElement('i');f.className='ff';f.style.left=Math.random()*100+'%';f.style.top=Math.random()*100+'%';f.style.animationDelay=-Math.random()*5+'s';f.style.animationDuration=4+Math.random()*4+'s';$('music').appendChild(f)}
+/* music */
+const au=$('au'),pb=$('pb'),msg=$('msg');let L=[],cur=-1;
+const fmt=t=>isFinite(t)?(t/60|0)+':'+String(t%60|0).padStart(2,'0'):'0:00';
+function parse(txt){const out=[];txt.split(/\r?\n/).forEach(l=>{const m=[...l.matchAll(/\[(\d+):(\d+(?:\.\d+)?)\]/g)];const t=l.replace(/\[[^\]]*\]/g,'').trim();m.forEach(x=>out.push({t:+x[1]*60+ +x[2],s:t}))});return out.filter(o=>o.s).sort((a,b)=>a.t-b.t)}
+function render(){const c=$('lines');c.innerHTML='';c.style.transform='';cur=-1;L.forEach(o=>{const p=document.createElement('p');p.textContent=o.s;c.appendChild(p)});if(L.length)msg.textContent=''}
+async function tryLrc(){try{const r=await fetch('perfect.lrc');if(!r.ok)throw 0;L=parse(await r.text());if(L.length){render();return}}catch(e){}
+  /* opened straight from a folder: browsers block fetch(), so try lyrics.js (script tags are allowed) */
+  await new Promise(res=>{const sc=document.createElement('script');sc.src='lyrics.js';sc.onload=sc.onerror=res;document.head.appendChild(sc)});
+  if(window.LYRICS_LRC){L=parse(window.LYRICS_LRC);if(L.length){render();return}}
+  msg.textContent='lyrics not loaded: tap ⚙ setup (top-left of the player) and choose perfect.lrc ♡'}
+tryLrc();
+au.onerror=()=>{msg.textContent='put perfect.mp3 next to this page, or choose your song file below ♡'};
+$('fa').onchange=e=>{const f=e.target.files[0];if(f){au.src=URL.createObjectURL(f);au.load();msg.textContent=''}};
+$('fl').onchange=e=>{const f=e.target.files[0];if(!f)return;f.text().then(t=>{L=parse(t);L.length?render():msg.textContent='no timestamps found in that file'})};
+pb.onclick=()=>{au.paused?au.play().catch(()=>{}):au.pause()};
+au.onplay=()=>{document.body.classList.add('dark');$('vbg').play().catch(()=>{});const r=document.querySelector('.pl').getBoundingClientRect();if(r.top<0||r.bottom>innerHeight)$('music').scrollIntoView({behavior:'smooth',block:'center'});$('dance').classList.add('on');pb.textContent='❚❚';$('disc').classList.add('on')};
+au.onended=()=>{document.body.classList.remove('dark');setTimeout(()=>{if(document.body.classList.contains('dark')===false)$('vbg').pause()},1700)};
+au.onpause=()=>{document.body.classList.remove('dark');setTimeout(()=>{if(!document.body.classList.contains('dark'))$('vbg').pause()},1700);$('dance').classList.remove('on');pb.textContent='▶';$('disc').classList.remove('on')};
+au.onloadedmetadata=()=>$('dur').textContent=fmt(au.duration);
+$('bar').onclick=e=>{const r=e.currentTarget.getBoundingClientRect();if(au.duration)au.currentTime=(e.clientX-r.left)/r.width*au.duration};
+au.ontimeupdate=()=>{$('cur').textContent=fmt(au.currentTime);$('fill').style.width=(au.currentTime/au.duration*100||0)+'%';
+  let i=-1;for(let k=0;k<L.length;k++){if(L[k].t<=au.currentTime+.15)i=k;else break}
+  if(i!==cur){const ps=$('lines').children;if(ps[cur])ps[cur].classList.remove('on');cur=i;if(ps[i]){ps[i].classList.add('on');$('lines').style.transform='translateY('+(95-(ps[i].offsetTop+ps[i].offsetHeight/2))+'px)'}}};
+</script>
+</body>
+</html>

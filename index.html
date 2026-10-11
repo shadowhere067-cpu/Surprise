@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#4a0912">
+<title>for yuka ♡</title>
+<style>
+:root{--wine:#3a0a14;--pink:#f8c6da}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;font-family:ui-rounded,"Trebuchet MS",system-ui,sans-serif;color:#fbe8ee;overflow-x:hidden;
+background:radial-gradient(ellipse at 50% -5%,#d86a9a66,transparent 55%),radial-gradient(ellipse at 50% 105%,#b3202f55,transparent 55%),linear-gradient(#4a0912,#2b0a10) fixed}
+.script{font-family:"Brush Script MT","Segoe Script","Snell Roundhand",cursive;font-weight:400}
+#sky{position:fixed;inset:0;pointer-events:none;z-index:50;overflow:hidden}
+.fl{position:absolute;bottom:-50px;opacity:0;animation:up linear forwards}
+@keyframes up{0%{transform:translateY(0) rotate(-10deg);opacity:0}10%{opacity:.8}85%{opacity:.6}100%{transform:translateY(-115vh) translateX(40px) rotate(30deg);opacity:0}}
+.spark{position:fixed;pointer-events:none;z-index:60;animation:sp .9s forwards;font-size:14px;color:#f58ab5}
+@keyframes sp{to{transform:translateY(-26px) scale(.2) rotate(90deg);opacity:0}}
+.bfly{position:fixed;left:0;top:0;width:220px;height:220px;pointer-events:none;z-index:49;mix-blend-mode:screen;background:#000}
+main{position:relative;z-index:2;max-width:920px;margin:0 auto;padding:44px 16px 20px}
+header{text-align:center;position:relative}
+.top{font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:#e9a9c4;margin:0 0 6px}
+h1{font-size:clamp(3rem,13vw,5.4rem);margin:0;color:var(--pink);text-shadow:0 0 30px #f06a9d88,0 4px 0 #7a1630;line-height:1}
+.sub{color:#f0c4d4;line-height:1.7;margin:10px 0 36px}
+.st{position:absolute;pointer-events:none;filter:drop-shadow(0 6px 8px #0006);transform:rotate(var(--r,0deg));animation:sw 6s ease-in-out infinite}
+@keyframes sw{50%{transform:rotate(calc(var(--r,0deg) + 5deg)) translateY(-7px)}}
+.grid{display:grid;gap:34px 22px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));padding:12px 6px 10px}
+.card{position:relative;display:block;text-decoration:none;text-align:center;border-radius:22px;padding:34px 18px 20px;color:#4b2a36;box-shadow:0 18px 40px #0008;transition:transform .3s,box-shadow .3s;opacity:0;animation:in .8s forwards}
+.card:nth-child(1){animation-delay:.2s}.card:nth-child(2){animation-delay:.5s}.card:nth-child(3){animation-delay:.8s}.card:nth-child(4){animation-delay:1.1s}
+@keyframes in{from{opacity:0;transform:translateY(30px) scale(.96)}to{opacity:1;transform:none}}
+.card:hover,.card:focus-visible{transform:translateY(-8px) rotate(-1deg);box-shadow:0 26px 50px #000a,0 0 40px #f06a9d66;outline:0}
+.card img{display:block;height:120px;max-width:80%;margin:0 auto 10px;object-fit:contain;filter:drop-shadow(0 6px 8px #0004);animation:bob 4s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-6px) rotate(2deg)}}
+.card h2{margin:0 0 6px;font-size:2rem}
+.card p{margin:0 0 14px;font-size:.9rem;line-height:1.55}
+.go{display:inline-block;padding:9px 22px;border-radius:99px;font-size:.85rem;font-weight:700;background:linear-gradient(120deg,#c2255c,#8c1b3c);color:#fff;box-shadow:0 4px 0 #5a0f28}
+.no{position:absolute;left:-12px;top:-16px;width:58px;height:58px;background:url(for_yuka/stickers/seal_red.png) center/contain no-repeat;display:grid;place-items:center;color:#fcd9e0;font:700 .85rem Georgia,serif;text-shadow:0 1px 2px #000b;z-index:3;filter:drop-shadow(0 3px 5px #0007)}
+.c1{background:linear-gradient(#fff2f8d9,#ffdbe9d9),url(for_yuka/stickers/cherry.jpg) center/cover}
+.c2{background:radial-gradient(circle at 20% 30%,#c9953c33,transparent 35%),radial-gradient(circle at 80% 75%,#c9953c33,transparent 40%),#f2dfb4}
+.c3{background:repeating-linear-gradient(0deg,#0000001a 0 1px,transparent 1px 4px),repeating-linear-gradient(90deg,#0000001a 0 1px,transparent 1px 4px),#a22a2a;color:#ffe9e4}
+.c3 .go{background:#fff4f0;color:#8c1b3c;box-shadow:0 4px 0 #00000055}
+.c4{background:radial-gradient(circle at 50% 85%,#ffb36a55,transparent 60%),linear-gradient(#2b0a10,#4a0912);color:#fbe8ee;border:1px solid #d9b36a66}
+.c4 .go{background:linear-gradient(120deg,#f3b8d2,#d9b36a);color:#4a0912}
+.c1 h2{color:#b65d8d}.c2 h2{color:#8c3a4a}.c3 h2{color:#fff}.c4 h2{color:var(--pink)}
+.tape{position:absolute;top:-12px;left:50%;width:84px;height:24px;transform:translateX(-50%) rotate(-3deg);background:#ecd9b0cc;box-shadow:1px 2px 4px #0003;z-index:2}
+.soon img{filter:grayscale(.45) drop-shadow(0 6px 8px #0004);opacity:.85}
+.soon:after{content:"still exploring";position:absolute;right:-8px;top:14px;background:#f8c6da;color:#8c1b3c;font-size:.7rem;font-weight:700;padding:4px 12px;transform:rotate(6deg);box-shadow:0 3px 8px #0005;z-index:3}
+#toast{position:fixed;left:50%;bottom:34px;transform:translate(-50%,30px);z-index:80;background:#f8c6da;color:#7a1630;padding:12px 22px;border-radius:99px;font-weight:700;box-shadow:0 10px 30px #000a;opacity:0;pointer-events:none;transition:.4s;text-align:center}
+#toast.on{opacity:1;transform:translate(-50%,0)}
+footer{position:relative;z-index:2;text-align:center;padding:40px 16px 50px;color:#e9a9c4;font-size:.9rem}
+.duo{display:flex;justify-content:center;gap:4px}
+.duo img{position:relative;width:76px;animation:sw 6s ease-in-out infinite}
+.duo img+img{animation-delay:-2s}
+footer .script{font-size:1.9rem;color:var(--pink);margin:6px 0}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<div id="sky"></div>
+<div id="toast">still exploring ✦ come back soon ♡</div>
+<main>
+  <header>
+    <img class="st" src="for_yuka/stickers/bow.png" style="width:clamp(70px,18vw,120px);left:2%;top:-14px;--r:-14deg" alt="">
+    <img class="st" src="for_yuka/stickers/flowers.png" style="width:clamp(90px,24vw,170px);right:-14px;top:-30px;--r:8deg;opacity:.95" alt="">
+    <p class="top">a little corner of the internet, just for you ✧</p>
+    <h1 class="script">for yuka ♡</h1>
+    <p class="sub">everything i made for you, all in one place.<br>open them in order, or whichever one you feel like ✦</p>
+  </header>
+
+  <nav class="grid">
+    <a class="card c1" href="first/index.html"><i class="tape"></i><span class="no">01</span>
+      <img src="for_yuka/stickers/cat_whisker.png" alt="">
+      <h2 class="script">our first little website</h2>
+      <p>Confession ♡</p>
+      <b class="go">open ♡</b></a>
+
+    <a class="card c2" href="for_yuka/index.html"><i class="tape"></i><span class="no">02</span>
+      <img src="for_yuka/stickers/envelopes.png" alt="">
+      <h2 class="script">the surprise</h2>
+      <p>an envelope for my honey ♡</p>
+      <b class="go">open the envelope ♡</b></a>
+
+    <a class="card c3 soon" href="#"><i class="tape"></i><span class="no">03</span>
+      <img src="for_yuka/stickers/cat_tulips.png" alt="">
+      <h2 class="script">something sweet</h2>
+      <p>still being made… I'm still exploring ideas for this one ♡</p>
+      <b class="go">soon ♡</b></a>
+
+    <a class="card c4 soon" href="#"><i class="tape"></i><span class="no">04</span>
+      <img src="for_yuka/stickers/tulips.png" alt="">
+      <h2 class="script">one more thing</h2>
+      <p>a little secret for later ✦ not ready just yet</p>
+      <b class="go">soon ♡</b></a>
+  </nav>
+</main>
+
+<footer>
+  <div class="duo"><img src="for_yuka/stickers/seal_pink.png" alt=""><img src="for_yuka/stickers/seal_red.png" alt=""></div>
+  <div class="script">just for mine ♡</div>
+  made with a little too much thought, and a lot of fondness ♡
+</footer>
+
+<script>
+const sky=document.getElementById('sky'),sy=['♡','🌸','🦋','✧','💗','🌷','♥'];
+function fl(){const e=document.createElement('span');e.className='fl';e.textContent=sy[Math.random()*sy.length|0];e.style.left=Math.random()*100+'%';e.style.fontSize=14+Math.random()*20+'px';e.style.animationDuration=9+Math.random()*8+'s';sky.appendChild(e);setTimeout(()=>e.remove(),18000)}
+setInterval(fl,700);for(let i=0;i<8;i++)setTimeout(fl,i*250);
+let last=0;addEventListener('pointermove',e=>{const n=Date.now();if(n-last<70)return;last=n;const s=document.createElement('span');s.className='spark';s.textContent=['✦','♡','✧'][Math.random()*3|0];s.style.left=e.clientX+'px';s.style.top=e.clientY+'px';document.body.appendChild(s);setTimeout(()=>s.remove(),900)});
+/* tap = little heart burst, then open */
+document.querySelectorAll('.card').forEach(c=>c.addEventListener('click',e=>{e.preventDefault();for(let i=0;i<9;i++){const s=document.createElement('span');s.className='spark';s.textContent='♡';s.style.cssText='left:'+(e.clientX+(Math.random()-.5)*70)+'px;top:'+(e.clientY+(Math.random()-.5)*40)+'px;font-size:'+(16+Math.random()*16)+'px';document.body.appendChild(s);setTimeout(()=>s.remove(),900)}if(c.classList.contains('soon')){const t=document.getElementById('toast');t.classList.add('on');clearTimeout(window._t);window._t=setTimeout(()=>t.classList.remove('on'),2200);return}setTimeout(()=>location.href=c.getAttribute('href'),450)}));
+/* butterflies (your video) */
+if(!matchMedia('(prefers-reduced-motion:reduce)').matches){const B=[],n=innerWidth<600?3:4;
+for(let i=0;i<n;i++){const v=document.createElement('video');v.src='for_yuka/video/butterfly.mp4';v.muted=true;v.loop=true;v.autoplay=true;v.setAttribute('playsinline','');v.className='bfly';document.body.appendChild(v);v.addEventListener('loadedmetadata',()=>{v.currentTime=Math.random()*v.duration;v.play().catch(()=>{})});v.play().catch(()=>{});B.push({v,x:Math.random()*innerWidth,y:Math.random()*innerHeight,h:Math.random()*6.28,sp:.6+Math.random()*.5,t:Math.random()*9,a:0})}
+(function k(){B.forEach(b=>{b.t+=.02;b.h+=Math.sin(b.t*.8)*.018;b.x+=Math.cos(b.h)*b.sp;b.y+=Math.sin(b.h)*b.sp*.8-.15;if(b.x<-220)b.x=innerWidth+110;if(b.x>innerWidth+220)b.x=-110;if(b.y<-220)b.y=innerHeight+110;if(b.y>innerHeight+220)b.y=-110;b.a+=((((b.h*57.3+90)-b.a+540)%360)-180)*.04;b.v.style.transform='translate('+(b.x-110)+'px,'+(b.y-110)+'px) rotate('+b.a+'deg)'});requestAnimationFrame(k)})()}
+</script>
+</body>
+</html>
